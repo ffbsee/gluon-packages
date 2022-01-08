@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   id="svg_ffbsee"
+   viewBox="0 0 82.721202 82.721199"
+   height="312.64706"
+   width="312.64706"
+   sodipodi:docname="router-icon.svg"
+   inkscape:version="1.1.1 (eb90963e84, 2021-10-02)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview42"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.125"
+     inkscape:cx="-424"
+     inkscape:cy="-148"
+     inkscape:window-width="1848"
+     inkscape:window-height="1016"
+     inkscape:window-x="72"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg_ffbsee"
+     units="px"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs4941" />
+  <metadata
+     id="metadata4944">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <circle
+     style="fill:none;stroke:#de2c68;stroke-width:7.9375;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
+     id="path2888"
+     cx="41.3606"
+     cy="41.3606"
+     r="37.39185" />
+  <ellipse
+     style="fill:none;stroke:#de2c68;stroke-width:1.42745;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
+     id="path2888-6"
+     cx="41.3606"
+     cy="41.3606"
+     rx="28.390442"
+     ry="28.39044" />
+  <polygon
+     style="fill:#ffcc33;fill-opacity:1"
+     points="88,47 75,47 81,41 73,41 64,50 73,59 81,59 75,53 88,53 "
+     transform="matrix(-1.29568,0,0,1.3409496,135.83629,-38.549175)"
+     id="polygon5867-36-5"
+     inkscape:transform-center-x="-2173.3097"
+     inkscape:transform-center-y="17.961214" />
+  <polygon
+     style="fill:#ffcc33;fill-opacity:1"
+     points="81,41 73,41 64,50 73,59 81,59 75,53 88,53 88,47 75,47 "
+     transform="matrix(1.29568,0,0,1.3409496,-53.115091,-12.824585)"
+     id="polygon5867-36-5-3"
+     inkscape:transform-center-x="2173.3097"
+     inkscape:transform-center-y="17.961214" />
+</svg>
