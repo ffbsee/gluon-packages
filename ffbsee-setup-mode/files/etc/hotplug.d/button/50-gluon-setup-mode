@@ -1,0 +1,52 @@
+#!/bin/sh
+
+
+wait=3
+cwait=3600
+
+wait_config_mode() {
+	sleep $cwait
+	uci set 'gluon-setup-mode.@setup_mode[0].enabled=0'
+	uci commit gluon-setup-mode
+	if [ -r /tmp/.wait_config_mode ]; then
+		kill "$(cat /tmp/.wait_config_mode)"
+		rm /tmp/.wait_config_mode
+	fi
+	# turn off config page
+	/lib/gluon/setup-mode/rc.d/S50uhttpd stop
+	# turn on status page
+	/etc/rc.d/S50uhttpd start
+}
+
+wait_setup_mode() {
+	if [ -r /tmp/.wait_config_mode ]; then
+		exit
+	fi
+	sleep $wait
+	uci set 'gluon-setup-mode.@setup_mode[0].enabled=1'
+	uci commit gluon-setup-mode
+	# turn off status page
+	/etc/rc.d/S50uhttpd stop
+	# turn on config page
+	/lib/gluon/setup-mode/rc.d/S50uhttpd start
+	PID=$!
+	echo $PID > /tmp/.wait_config_mode
+	wait_config_mode &
+}
+
+
+if [ "$BUTTON" = wps ] || [ "$BUTTON" = reset ] || [ "$BUTTON" = phone ]; then
+	case "$ACTION" in
+		pressed)
+			wait_setup_mode &
+			PID=$!
+			echo $PID > /tmp/.wait_setup_mode
+			;;
+		released)
+			if [ -r /tmp/.wait_setup_mode ]; then
+				kill "$(cat /tmp/.wait_setup_mode)"
+				rm /tmp/.wait_setup_mode
+			fi
+			;;
+	esac
+fi
