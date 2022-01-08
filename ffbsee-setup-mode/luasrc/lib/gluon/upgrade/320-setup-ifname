@@ -1,0 +1,22 @@
+#!/usr/bin/lua
+
+local platform = require 'gluon.platform'
+local sysconfig = require 'gluon.sysconfig'
+
+
+if sysconfig.setup_ifname then
+	os.exit(0)
+end
+
+if platform.is_outdoor_device() or
+	platform.match('ar71xx', 'generic', {
+		'airgateway',
+		'uap-pro',
+		'unifiac-pro'
+	}) or
+	platform.match('ar71xx', 'mikrotik')
+then
+	sysconfig.setup_ifname = sysconfig.wan_ifname or sysconfig.lan_ifname
+else
+	sysconfig.setup_ifname = sysconfig.lan_ifname or sysconfig.wan_ifname
+end
