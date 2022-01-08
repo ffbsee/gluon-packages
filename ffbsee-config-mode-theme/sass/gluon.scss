@@ -239,6 +239,10 @@ ul.tabmenu {
 	}
 }
 
+body.admin-network .gluon-section {
+	margin-bottom: 0;
+}
+
 .gluon-section-descr {
 	margin-bottom: 2rem;
 }
@@ -336,6 +340,11 @@ input[type=checkbox] + label {
 	outline: 0;
 }
 
+select, input[type="text"],
+input[type="password"] {
+	min-width: auto;
+}
+
 .select-wrapper {
 	position: relative;
 	display: inline-block;
@@ -364,12 +373,6 @@ input[type=checkbox] + label {
 option {
 	color: darken($ffzusatz, 30);
 	background: lighten($ffyellow, 30);
-}
-
-select,
-input[type=text],
-input[type=password] {
-	min-width: 80%;
 }
 
 .gluon-button {
@@ -675,9 +678,3 @@ form > p {
 		margin: 0;
 	}
 }
-
-// XX-Large devices (larger desktops, 1400px and up)
-@media (min-width: 1400px) {
-
-}
-
