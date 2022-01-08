@@ -336,6 +336,11 @@ input[type=checkbox] + label {
 	outline: 0;
 }
 
+select, input[type="text"],
+input[type="password"] {
+	min-width: auto;
+}
+
 .select-wrapper {
 	position: relative;
 	display: inline-block;
@@ -364,12 +369,6 @@ input[type=checkbox] + label {
 option {
 	color: darken($ffzusatz, 30);
 	background: lighten($ffyellow, 30);
-}
-
-select,
-input[type=text],
-input[type=password] {
-	min-width: 80%;
 }
 
 .gluon-button {
