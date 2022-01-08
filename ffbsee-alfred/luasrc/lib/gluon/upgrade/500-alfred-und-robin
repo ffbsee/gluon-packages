@@ -1,0 +1,6 @@
+#!/usr/bin/lua
+
+local f = io.open('/usr/lib/micron.d/alfredjson', 'w')
+f:write('*/5 * * * * /sbin/print_map.sh -p\n')
+f:write('*/7 * * * * /sbin/robin_print_map.sh -p\n')
+f:close()
