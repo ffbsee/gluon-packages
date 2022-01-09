@@ -29,7 +29,7 @@ wait_setup_mode() {
 	/etc/rc.d/S50uhttpd stop
 	# turn on config page
 	/lib/gluon/setup-mode/rc.d/S50uhttpd start
-	PID=$!
+	local PID=$!
 	echo $PID > /tmp/.wait_config_mode
 	wait_config_mode &
 }
