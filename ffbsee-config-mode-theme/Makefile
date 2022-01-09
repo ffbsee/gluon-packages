@@ -14,5 +14,6 @@ define Package/ffbsee-config-mode-theme
   PROVIDES:=gluon-config-mode-theme
 endef
 
+#dart sass is required, ruby sass sucks
 $(shell sass --no-source-map --style compressed sass/gluon.scss files/lib/gluon/config-mode/www/static/gluon.css)
 $(eval $(call BuildPackageGluon,ffbsee-config-mode-theme))
