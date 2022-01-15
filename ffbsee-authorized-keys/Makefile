@@ -3,7 +3,7 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=ffbsee-authorized-keys
 PKG_VERSION:=0.1
 
-include ../gluon.mk
+include $(TOPDIR)/../package/gluon.mk
 
 define Package/ffbsee-authorized-keys
   TITLE:=Fill /etc/dropbear/authorized_keys from site.conf on UI demand
