@@ -1,0 +1,39 @@
+#!/usr/bin/lua
+
+local site = require 'gluon.site'
+local file = '/etc/dropbear/authorized_keys'
+local uci = require('simple-uci').cursor()
+
+local keys = {}
+
+local function load_keys()
+  for line in io.lines(file) do
+    keys[line] = true
+  end
+end
+
+pcall(load_keys)
+
+if uci:get_first('ffbsee-support', 'access', 'allowed', false) then
+  local f = io.open(file, 'a')
+  for _, key in ipairs(site.authorized_keys()) do
+    if not keys[key] then
+      f:write(key .. '\n')
+    end
+  end
+  f:close()
+else
+  local f = io.open(file, 'w')
+  local dkeys = {}
+  for _, key in ipairs(site.authorized_keys()) do
+    if keys[key] then
+      dkeys[key] = true
+    end
+  end
+  for key, _ in pairs(keys) do
+    if not dkeys[key] then
+      f:write(key .. '\n')
+    end
+  end
+  f:close()
+end

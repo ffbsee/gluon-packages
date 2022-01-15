@@ -1,0 +1,2 @@
+config access
+       option allowed '0'
