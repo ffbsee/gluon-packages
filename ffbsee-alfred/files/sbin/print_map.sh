@@ -80,7 +80,7 @@ print_all() {
 	echo -n "\"rootfs_usage\" : $(rootfs_usage), "
 	echo -n "\"memory_usage\" : $(memory_usage), "
 	echo -n "\"addresses\" : ["
-	ip -6 address show dev br-freifunk 2> /dev/null | grep -v "$prefix" | tr '/' ' ' | awk 'BEGIN{i=0} /inet/ { if($2 !~ /^fe80/) { printf("%s\"%s\"", (i ? ", " : ""), $2); i=1; }}'
+	ip -6 address show dev br-client 2> /dev/null | grep -v "$prefix" | tr '/' ' ' | awk 'BEGIN{i=0} /inet/ { if($2 !~ /^fe80/) { printf("%s\"%s\"", (i ? ", " : ""), $2); i=1; }}'
 	echo -n "], "
 
 	print_more
