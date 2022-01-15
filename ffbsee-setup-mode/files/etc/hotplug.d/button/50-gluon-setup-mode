@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 wait=3
 cwait=3600
 
@@ -14,17 +13,11 @@ wait_config_mode() {
 	fi
 	# turn off config page
 	/lib/gluon/setup-mode/rc.d/S50uhttpd stop
-	sleep 1
-	# turn on status page
-	/etc/rc.d/S50uhttpd start
 }
 
 start_config_web_ui() {
 	uci set 'gluon-setup-mode.@setup_mode[0].enabled=1'
 	uci commit gluon-setup-mode
-	# turn off status page
-	/etc/rc.d/S50uhttpd stop
-	sleep 1
 	# turn on config page
 	/lib/gluon/setup-mode/rc.d/S50uhttpd start
 	local PID=$!

@@ -1,0 +1,3 @@
+#!/bin/ash
+
+openssl req -new -x509 -sha256 -newkey rsa:2048 -nodes -keyout /etc/uhttpd.key -days 365 -out /etc/uhttpd.crt

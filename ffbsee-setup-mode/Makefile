@@ -4,7 +4,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffbsee-setup-mode
-PKG_VERSION:=0.1
+PKG_VERSION:=0.2
 
 include $(TOPDIR)/../package/gluon.mk
 
@@ -19,8 +19,8 @@ define Package/ffbsee-setup-mode/description
 	It will act the same for the first boot but every
 	other time a button is pressed for config mode it
 	will not reboot to a save mode but instead provide
-	a config web UI with only link local access
-	for a period of 1h.
+	a config web UI with only lan/wifi (local) access
+	via ffbsee nexthop 10.15.239.127 for a period of 1h.
 endef
 
 init_links := \

@@ -1,0 +1,12 @@
+#!/usr/bin/lua
+
+local uci = require('simple-uci').cursor()
+
+uci:section('firewall', 'rule', 'loc_client' .. '_https', {
+    src = 'loc_client',
+    dest_port = '443',
+    proto = 'tcp',
+    target = 'ACCEPT',
+})
+
+uci:save('firewall')
