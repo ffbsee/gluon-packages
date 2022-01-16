@@ -4,7 +4,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffbsee-setup-mode
-PKG_VERSION:=0.2
+PKG_VERSION:=0.3
 
 include $(TOPDIR)/../package/gluon.mk
 
@@ -43,6 +43,8 @@ define Package/ffbsee-setup-mode/install
 	for link in $(init_links); do \
 		$(LN) "/etc/init.d/$$$${link:3}" "$(1)/lib/gluon/setup-mode/rc.d/$$$${link}"; \
 	done
+
+	$(LN) /etc/rc.d/S19dnsmasq $(1)/lib/gluon/setup-mode/rc.d/S21dnsmasq
 endef
 
 $(eval $(call BuildPackageGluon,ffbsee-setup-mode))

@@ -1,0 +1,29 @@
+#!/usr/bin/lua
+
+local uci = require('simple-uci').cursor()
+
+-- disallow ssh from outside world
+uci:foreach('firewall', 'zone', function(zone)
+  local name = zone['.name']
+  if not name == 'loc_client' then
+    uci:section('firewall', 'rule', name .. '_ssh', {
+        src = name,
+        dest_port = '22',
+        proto = 'tcp',
+        target = 'REJECT',
+    })
+  end
+end)
+
+-- no need to adjust 443 since this is only local anyway
+
+-- allow local dhcp
+uci:section('firewall', 'rule', 'loc_client' .. '_bootp', {
+    src = 'loc_client',
+    dest_port = '67',
+    proto = 'udp',
+    dest_ip = '10.15.239.127',
+    target = 'ACCEPT',
+})
+
+uci:save('firewall')
