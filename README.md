@@ -25,3 +25,10 @@ Our ffbsee-custom theme for config mode. More responsive than the orginal one.
 ### ffbsee-setup-mode 
 Trigger the setup-mode.
 We activate setup-mode for one hour after pressing a certain button on the router.
+
+### ffbsee-wifiscan
+* Executes a scan for all the channels, ssids, signal-strength on air.
+* Result is just a json-Array.
+* Future Purpose:
+  * failure analyses in case of bad wifi complaints
+  * config: not-meshing devices could want to change their channel
