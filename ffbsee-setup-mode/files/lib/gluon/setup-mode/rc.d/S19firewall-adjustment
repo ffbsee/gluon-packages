@@ -1,19 +1,25 @@
-#!/usr/bin/lua
+#!/bin/sh /etc/rc.common
 
+START=19
+STOP=91
+
+LUA=/usr/bin/lua
+
+BEGIN_SECTION="
 local uci = require('simple-uci').cursor()
+local normal_zones = { 'wan', 'mesh', 'wired_mesh' }
+"
 
--- disallow ssh from outside world
-uci:foreach('firewall', 'zone', function(zone)
-  local name = zone['.name']
-  if not name == 'loc_client' then
-    uci:section('firewall', 'rule', name .. '_ssh', {
-        src = name,
-        dest_port = '22',
-        proto = 'tcp',
-        target = 'REJECT',
-    })
-  end
-end)
+START_SECTION="
+-- disallow ssh from outside world only loc_client remaining
+for _, zone in ipairs(normal_zones) do
+  uci:section('firewall', 'rule', zone .. '_ssh', {
+      src = zone,
+      dest_port = '22',
+      proto = 'tcp',
+      target = 'REJECT',
+  })
+end
 
 -- no need to adjust 443 since this is only local anyway
 
@@ -22,8 +28,37 @@ uci:section('firewall', 'rule', 'loc_client' .. '_bootp', {
     src = 'loc_client',
     dest_port = '67',
     proto = 'udp',
-    dest_ip = '10.15.239.127',
     target = 'ACCEPT',
 })
+"
 
+STOP_SECTION="
+-- allow ssh from outside world
+for _, zone in ipairs(normal_zones) do
+  uci:section('firewall', 'rule', zone .. '_ssh', {
+      src = name,
+      dest_port = '22',
+      proto = 'tcp',
+      target = 'ACCEPT',
+  })
+end
+
+-- no need to adjust 443 since this is only local anyway
+
+-- disallow local dhcp
+uci:delete('firewall', 'loc_client' .. '_bootp')
+"
+
+END_SCTION="
 uci:save('firewall')
+"
+
+start() {
+  echo "$BEGIN_SECTION $START_SECTION $END_SCTION" | $LUA -
+}
+
+stop() {
+  echo "$BEGIN_SECTION $STOP_SECTION $END_SCTION" | $LUA -
+  # note: the UI wizzard commoted all uci changes on save click so we need to commit this again
+  uci commit firewall
+}
