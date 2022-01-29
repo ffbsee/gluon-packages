@@ -421,6 +421,7 @@ textarea {
 	padding-right: 1rem;
 	font-weight: bold;
 	padding-left: 1rem;
+	overflow-wrap: break-word;		
 }
 
 .gluon-value-field {
@@ -446,6 +447,7 @@ textarea {
 .gluon-value-field-text {
 	padding-top: 0.5rem;
 	padding-left: 1rem;
+	overflow-wrap: break-word;		
 }
 
 .gluon-value-field-long {
@@ -645,11 +647,6 @@ form > p {
 
 	.gluon-value-field {
 		margin-right: auto;
-	}
-
-	.gluon-value-title,
-	.gluon-value-field-text {
-		overflow-wrap: break-word;		
 	}
 }
 
