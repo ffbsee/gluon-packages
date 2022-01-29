@@ -646,6 +646,11 @@ form > p {
 	.gluon-value-field {
 		margin-right: auto;
 	}
+
+	.gluon-value-title,
+	.gluon-value-field-text {
+		overflow-wrap: break-word;		
+	}
 }
 
 // Large devices (desktops, 992px and up)
