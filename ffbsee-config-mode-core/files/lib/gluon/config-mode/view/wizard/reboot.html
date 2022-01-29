@@ -1,4 +1,8 @@
-<h2><%:Your node's setup is now complete.%></h2>
+<h2><%
+	local pkg_i18n = i18n 'ffbsee-config-mode-core'
+	local msg =  pkg_i18n.translate("Your node's setup is now complete.")
+	renderer.render_string(msg)
+%></h2>
 <%
 	local util = require "gluon.util"
 
