@@ -4,7 +4,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffbsee-config-mode-core
-PKG_VERSION:=0.1
+PKG_VERSION:=0.2
 
 include $(TOPDIR)/../package/gluon.mk
 
