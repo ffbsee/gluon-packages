@@ -1,8 +1,9 @@
 local util = require "gluon.util"
 local uci = require("simple-uci").cursor()
+local pkg_i18n = i18n 'ffbsee-config-mode-core'
 
-local f = Form(translate("Welcome!"))
-f.submit = translate('Save & restart')
+local f = Form(pkg_i18n.translate("Welcome!"))
+f.submit = pkg_i18n.translate('Save & restart')
 f.reset = false
 
 local s = f:section(Section)
